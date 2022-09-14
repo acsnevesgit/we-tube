@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideoPlayer = ({ data }) => (
+const Playback = ({ data }) => (
   <iframe
     class='child'
     width='800'
@@ -13,4 +13,4 @@ const VideoPlayer = ({ data }) => (
   ></iframe>
 );
 
-export default VideoPlayer;
+export default Playback;

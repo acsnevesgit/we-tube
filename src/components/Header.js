@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { ReactComponent as Logo } from '../assets/logo.svg';
 
 const Header = () => {
-
   const reloadPage = () => {
+    // TODO: redirect to homepage
     window.location.reload();
   };
 

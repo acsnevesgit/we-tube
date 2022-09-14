@@ -4,9 +4,9 @@ import React from 'react';
 import { MdExplore, MdFeedback, MdHelp, MdHistory, MdHome, MdWatchLater, MdWhatshot, MdSettings, MdSubscriptions, MdThumbUp, MdVideoLibrary } from 'react-icons/md'
 import SidebarRow from './SidebarRow';
 
-const Sidebar = () => (
-  <div class='sidebar'>
-    <SidebarRow selected Icon={MdHome} title='Home' />
+const Sidebar = ({ onClick }) => (
+  <div class='sidebar' onClick={onClick}>
+    <SidebarRow selected Icon={MdHome} title='Home' id='home' />
     <SidebarRow Icon={MdWhatshot} title='Trending' />
     <SidebarRow Icon={MdExplore} title='Explore' />
     <hr />

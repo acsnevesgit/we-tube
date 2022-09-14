@@ -1,0 +1,56 @@
+:root {
+  --white: rgb(255, 255, 255);
+  --verylightgray: rgb(200, 200, 200);
+  --lightgray: rgb(170, 170, 170);
+  --mediumgray: rgb(61, 61, 61);
+  --darkgray: rgb(40, 40, 40);
+  --black: rgb(0, 0, 0);
+  --red: rgb(250, 0, 0);
+}
+
+.home {
+  margin-bottom: 40px;
+  width: 250px;
+}
+
+.home:hover {
+  cursor: pointer;
+}
+
+.home-thumbnail {
+  height: 140px;
+  width: 250px;
+}
+
+.home-info {
+  display: flex;
+  margin-top: 10px;
+  padding-right: 30px;
+}
+
+.home-text {
+  margin-left: 15px;
+}
+
+.home-text>h4 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.home-text>p {
+  font-size: 14px;
+  color: var(--mediumgray);
+}
+
+.home-avatar {
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 50%;
+}
+
+.videos {
+  padding: 30px 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

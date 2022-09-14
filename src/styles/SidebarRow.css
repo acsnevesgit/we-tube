@@ -11,7 +11,7 @@
 .sidebar-row {
   display: flex;
   align-items: center;
-  padding: 10px 32px;
+  padding: 10px 36px;
 }
 
 .sidebar-row-icon {
@@ -22,7 +22,7 @@
 .sidebar-row-title {
   flex: 1;
   margin-left: 20px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .sidebar-row:hover {
