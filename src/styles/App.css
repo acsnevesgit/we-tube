@@ -1,51 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-.App {
-  margin: 2rem;
-}
-
 :root {
-  --primary: black;
-  --secondary: red;
-  --background: white;
-  --lightgray: lightgrey;
-  --mediumgray: rgb(205, 205, 205);
-  --darkgray: rgb(150, 150, 150);
+  --white: rgb(255, 255, 255);
+  --verylightgray: rgb(200, 200, 200);
+  --lightgray: rgb(170, 170, 170);
+  --mediumgray: rgb(61, 61, 61);
+  --darkgray: rgb(40, 40, 40);
+  --black: rgb(0, 0, 0);
+  --red: rgb(250, 0, 0);
 }
 
 body {
   font-family: Roboto;
   padding: 0;
   margin: 0;
-  background-color: var(--background);
-}
-
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  justify-content: center;
-  align-content: center;
-}
-
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
+  background-color: var(--white);
 }
 
 *,
@@ -56,36 +25,50 @@ body {
 
 /* ------------------------ My changes ------------------------ */
 
-header {
-  background-color: var(--primary);
-  margin: -2rem;
-  margin-bottom: 60px;
-  justify-content: center;
-  font-size: 25px;
-  color: var(--background);
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.child {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 10px;
+  line-height: 20px;
+}
+
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+
+.header {
+  background-color: var(--black);
+  color: var(--white);
   font-weight: bolder;
+  font-size: 50px;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 120px;
 }
 
 .footer {
-  background-color: var(--primary);
-  justify-content: center;
+  background-color: var(--black);
   font-size: 20px;
-  color: var(--background);
-  /* padding: 10px; */
-  margin: -2rem;
-  margin-top: 50px;
-  position: relative;
-  bottom: 0;
+  color: var(--white);
   text-align: center;
 }
 
-.footerTitle {
-  align-self: center;
-}
-
-.socialMedia {
-  display: flex;
+.footer div {
+  display: inline-flex;
+  align-items: center;
 }
 
 .socialMedia nav {
@@ -97,8 +80,7 @@ header {
 }
 
 .socialMediaIcon {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px;
 }
 
 .buttons button {
@@ -107,55 +89,6 @@ header {
   font-weight: 700;
   border-style: outset;
   position: relative;
-}
-
-.previous-button button {
-  margin-right: 15px;
-}
-
-.next-button button {
-  margin-left: 15px;
-}
-
-.main-right li {
-  margin-top: 5px;
-  margin-left: 10px;
-  margin-bottom: 5px;
-  justify-items: center;
-  align-items: center;
-  align-content: space-evenly;
-  display: flex;
-  padding-bottom: 5px;
-  padding-top: 5px;
-}
-
-.header-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border-bottom: dotted;
-  height: 120px;
-}
-
-.footerTitle span {
-  color: var(--secondary);
-  font-weight: bold;
-}
-
-.videoPlayer,
-.my span {
-  font-size: 2.5rem;
-  color: var(--secondary);
-  font-weight: bolder;
-  -webkit-text-stroke: 0.4px var(--background);
-}
-
-.header-title {
-  font-size: 60px;
-  margin-left: 10px;
-  margin-right: 10px;
-  /* -webkit-text-stroke: 0.8px var(--secondary); */
 }
 
 .logo {
@@ -167,34 +100,10 @@ header {
   display: flex;
 }
 
-.navigation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .main {
+  flex-grow: 1;
   display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.main-left {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.main-right {
-  align-items: center;
-  border: 2px solid var(--primary);
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 500px;
-  height: 300px;
-  overflow-x: scroll;
-  overflow-y: scroll;
+  flex-direction: column;
 }
 
 .buttons {
@@ -208,7 +117,7 @@ header {
 }
 
 .buttons button:active {
-  color: var(--primary);
+  color: var(--black);
   top: 2px;
 }
 
@@ -220,46 +129,11 @@ header {
   margin-bottom: 10px;
 }
 
-.heart {
-  width: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color: none;
-  background: none;
-  border: none;
-  padding: 0;
-  margin-top: 0;
-}
-
-.heart button {
-  font-size: 0;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  opacity: 1;
-  transition: 0.3s;
-}
-
-.heart button:hover {
-  animation: blinking 1s linear infinite;
-}
-
 .links {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
-}
-
-.main-right ul {
-  height: 100%;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 0;
-  margin-bottom: 20px;
 }
 
 .links button {
@@ -278,95 +152,18 @@ header {
 }
 
 .active button {
-  color: var(--primary);
+  color: var(--black);
 }
 
 .links button:hover {
-  color: var(--primary);
+  color: var(--black);
 }
 
 .links.active button:focus {
-  color: var(--primary);
+  color: var(--black);
 }
 
 .links button:active {
-  top: 2px;
-}
-
-.logoutButton,
-.loginButton,
-.signupButton {
-  font-size: 18px;
-  padding: 5px 15px;
-  font-weight: 700;
-  position: relative;
-  justify-content: center;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin-bottom: 5px;
-}
-
-.loginButton,
-.signupButton {
-  margin-right: 30px;
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-.loginButton {
-  margin-left: 20px;
-}
-
-.userButton {
-  margin-top: 7.5px;
-  margin-bottom: 7.5px;
-  margin-right: 25px;
-  background: none;
-  border: none;
-}
-
-.userButton:hover:active {
-  border: 1px white;
-}
-
-.logoutButton span,
-.loginButton span {
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.logoutButton span:after {
-  content: "\01F846";
-}
-
-.loginButton span:after {
-  content: "\01F844";
-}
-
-.logoutButton span:after,
-.loginButton span:after {
-  align-content: center;
-  position: absolute;
-  opacity: 0;
-  right: -10px;
-  padding-right: 5px;
-  transition: 0.5s;
-}
-
-.logoutButton:hover span,
-.loginButton:hover span {
-  padding-right: 25px;
-}
-
-.logoutButton:hover span:after,
-.loginButton:hover span:after {
-  opacity: 1;
-}
-
-.logoutButton button:active,
-.loginButton button:active {
-  color: var(--primary);
   top: 2px;
 }
 
@@ -392,62 +189,6 @@ a.videoName:hover {
   cursor: help;
 }
 
-.buttonDefault:hover {
-  animation: glowing 1.5s linear infinite alternate-reverse;
-}
-
-.footer div {
-  display: inline-flex;
-  align-items: center;
-}
-
-.loginForm {
-  display: flex;
-}
-
-.signupForm form {
-  display: inline-grid;
-  justify-items: center;
-}
-
-.headerNoUser {
-  display: inline-flex;
-}
-
 button {
   cursor: pointer;
-}
-
-@keyframes shake {
-  0% {
-    left: -3px;
-  }
-
-  50% {
-    right: 0px;
-  }
-
-  100% {
-    right: -3px;
-  }
-}
-
-@keyframes blinking {
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes glowing {
-  0% {
-    box-shadow: 0 0 3px var(--primary);
-  }
-
-  50% {
-    box-shadow: 0 0 20px var(--primary);
-  }
-
-  100% {
-    box-shadow: 0 0 3px var(--primary);
-  }
 }

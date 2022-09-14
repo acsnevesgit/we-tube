@@ -2,6 +2,7 @@ import React from 'react';
 
 const VideoPlayer = ({ data }) => (
   <iframe
+    class='child'
     width='500'
     height='300'
     src={`https://www.youtube.com/embed/${data}`}

@@ -8,6 +8,7 @@
 }
 
 .searchInputs {
+  margin-bottom: 50px;
   display: flex;
 }
 
@@ -86,8 +87,4 @@ input:focus {
 
 #closeButton {
   cursor: pointer;
-}
-
-.search {
-  display: grid;
 }

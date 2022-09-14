@@ -3,12 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import VideoPlayer from './components/VideoPlayer';
 import SearchBar from './components/SearchBar';
-import AllVideosLink from './components/AllVideosLink';
-import NextButton from './components/NextButton';
-import PreviousButton from './components/PreviousButton';
-import AllVideosList from './components/AllVideosList';
 import Footer from './components/Footer';
-import SideBar from './components/SideBar';
+import Sidebar from './components/Sidebar';
 
 import data from './data/data.json';
 
@@ -18,17 +14,12 @@ const App = () => {
   const [selectedVideo, setSelectedVideo] = useState(data[0]);
 
   const [videos, setVideos] = useState();
-  const [favorites, setFavorites] = useState();
-  const [isFavorite, setIsFavorite] = useState();
   const [videosNames, setVideosNames] = useState();
   const [videoId, setVideoId] = useState();
-  const [showAll, setShowAll] = useState(true);
-  const [showFav, setShowFav] = useState(false);
 
   const [index, setIndex] = useState(
     () => JSON.parse(localStorage.getItem('currentIndex')) ?? 0
   );
-  const userLoggedin = JSON.parse(localStorage.getItem('isLoggedin')) ?? false;
 
   // ------*-------*------*------*-------- getters and setters ------*-------*------*------*--------
 
@@ -42,60 +33,7 @@ const App = () => {
       }
     );
     const videosData = await response.json();
-    const isFavoriteData = videosData.map(() => false);
-    setIsFavorite(isFavoriteData); // by default (e.g. user not logged in) all hearts untoggled
     setVideos(videosData);
-  };
-
-  // Function to get all the favorites from DB through the server
-  const getFavorites = async () => {
-    const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/favorites`,
-      {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-      }
-    );
-    const favoritesData = await response.json();
-    setFavorites(favoritesData); // One time after loggin
-  };
-
-  const getIsFavorite = async () => {
-    const videosListNames = videos?.map(
-      (video) => video.id_name
-    );
-
-    if (favorites !== undefined || []) {
-      const favsListNames = await favorites?.map(
-        (favorite) => favorite.id_name
-      );
-
-      const indexes = await favsListNames.map((x) =>
-        videosListNames.indexOf(`${x}`)
-      );
-
-      const copyIsFavorite = [...isFavorite]; // use copy of current isFavorite instead of overwritting it
-
-      await indexes.forEach((i) => {
-        if (i !== undefined || -1) {
-          copyIsFavorite.splice(i, 1, true); // replace each index of isFavorite with true if video is favorite
-        }
-      });
-      setIsFavorite(copyIsFavorite); // One time after loggin
-    }
-  };
-
-  const useAllList = () => {
-    setShowFav(false);
-    setShowAll(true);
-  };
-
-  const useFavList = () => {
-    if (favorites !== undefined) {
-      setShowFav(true);
-      setShowAll(false);
-    }
   };
 
   // Function to change the video to be played from the search bar
@@ -175,59 +113,6 @@ const App = () => {
     }
   };
 
-  // Function to add video to MyFavoritesList with DB
-  const createHeart = async (event) => {
-    const newFavorite = {
-      id_videoId: event.target.name,
-      id_name: event.target.title,
-    };
-
-    // If not favorite yet, add favorite
-    if (!isFavorite[`${event.target.id}`]) {
-      await fetch(`${process.env.REACT_APP_BACKEND_URL}/favorites`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newFavorite),
-        credentials: 'include',
-      });
-      const newFavorites = [...isFavorite];
-      newFavorites[`${event.target.id}`] = true;
-      setIsFavorite(newFavorites);
-    } else {
-      // if already favorite, remove favorite
-      await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/favorites/${newFavorite.id_name}`,
-        {
-          method: 'DELETE',
-          headers: { 'Content-Type': 'application/json' },
-          credentials: 'include',
-        }
-      );
-      const newFavorites = [...isFavorite];
-      newFavorites[`${event.target.id}`] = false;
-      setIsFavorite(newFavorites);
-    }
-  };
-
-  // Function to add video to MyFavoritesList with DB
-  const deleteFavorite = async (event) => {
-    const NameToUnfav = event.target.title;
-
-    await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/favorites/${NameToUnfav}`,
-      {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-      }
-    );
-
-    const newFavorites = [...isFavorite];
-    const nameIndex = videosNames.indexOf(`${NameToUnfav}`);
-    newFavorites[`${nameIndex}`] = false;
-    setIsFavorite(newFavorites);
-  };
-
   // ------*-------*------*------*-------- useEffects ------*-------*------*------*--------
   useEffect(() => {
     getVideosNames();
@@ -241,59 +126,19 @@ const App = () => {
     localStorage.setItem('currentIndex', JSON.stringify(index));
   }, [index]);
 
-  useEffect(() => {
-    localStorage.setItem('isFavorite', JSON.stringify(isFavorite));
-  }, [isFavorite]);
-
   // ------*-------*------*------*-------- JSX ------*-------*------*------*--------
 
   return (
     <div class='App'>
-      <div class='header'>
-        <Header />
-      </div>
-      <div class='navigation'>
-        <div class='search-bar'>
-          <SearchBar
-            placeholder='Enter a video name'
-            onClick={getVideoOnClick}
-          />
-        </div>
-      </div>
-      <SideBar />
-      <div class='main'>
-        <div class='main-left'>
+      <div class='header child'><Header /></div>
+      <div class='wrapper'>
+        <Sidebar class='child' />
+        <div class='main child'>
+          <SearchBar placeholder='Enter a video name' onClick={getVideoOnClick} />
           <VideoPlayer data={videoId} />
         </div>
-        <div class='main-right'>
-          <div class='links'>
-            <div class={showAll ? 'active' : 'inactive'}>
-              <AllVideosLink onClick={useAllList} />
-            </div>
-          </div>
-          <div>
-            <div>
-              <AllVideosList
-                videos={videos}
-                onClickName={getNameOnClick}
-                isFavorite={isFavorite}
-                onClickHeart={createHeart}
-              />
-            </div>
-          </div>
-        </div>
       </div>
-      <div class='buttons'>
-        <div class='previous-button'>
-          <PreviousButton onClick={getPrevious} />
-        </div>
-        <div class='next-button'>
-          <NextButton onClick={getNext} />
-        </div>
-      </div>
-      <div class='footer'>
-        <Footer />
-      </div>
+      <div class='child footer'><Footer /></div>
     </div>
   );
 }

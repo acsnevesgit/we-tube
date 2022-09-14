@@ -15,9 +15,6 @@ const Header = () => {
           <Logo class='logo' />
           <p class='header-title'>WeTube</p>
         </div>
-        {/* <div class='nav-bar'>
-          <p>Nav bar placeholder</p>
-        </div> */}
       </header>
     </div>
   );

@@ -7,7 +7,7 @@ import { ReactComponent as Instagram } from '../assets/instagram.svg';
 const Footer = () => (
   <div class='footerInfo'>
     <div>
-      <p class='footerTitle'>WeTube</p>
+      <p class='footerTitle'>&copy; WeTube</p>
     </div>
     <div class='socialMedia'>
       <nav>
