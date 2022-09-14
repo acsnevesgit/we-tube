@@ -1,0 +1,22 @@
+:root {
+  --white: rgb(255, 255, 255);
+  --verylightgray: rgb(200, 200, 200);
+  --lightgray: rgb(170, 170, 170);
+  --mediumgray: rgb(61, 61, 61);
+  --darkgray: rgb(40, 40, 40);
+  --black: rgb(0, 0, 0);
+  --red: rgb(250, 0, 0);
+}
+
+.sidebar {
+  flex: 0.4;
+  background-color: rgb(240, 240, 240);
+}
+
+.sidebar>hr {
+  height: 1px;
+  border: 0;
+  background-color: var(--verylightgray);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

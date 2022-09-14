@@ -3,8 +3,8 @@ import React from 'react';
 const VideoPlayer = ({ data }) => (
   <iframe
     class='child'
-    width='500'
-    height='300'
+    width='800'
+    height='450'
     src={`https://www.youtube.com/embed/${data}`}
     title='VideoEmbed'
     frameBorder='0'

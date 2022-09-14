@@ -7,8 +7,12 @@
   --darkgray: rgb(150, 150, 150);
 }
 
-.searchInputs {
+.search {
   margin-bottom: 50px;
+  padding-top: 20px;
+}
+
+.searchInputs {
   display: flex;
 }
 
@@ -49,7 +53,6 @@ input:focus {
 }
 
 .searchIcon {
-  width: 50px;
   height: auto;
   align-self: center;
   justify-self: center;

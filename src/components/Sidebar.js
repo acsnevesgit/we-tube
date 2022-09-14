@@ -1,0 +1,26 @@
+
+import React from 'react';
+
+import { MdExplore, MdFeedback, MdHelp, MdHistory, MdHome, MdWatchLater, MdWhatshot, MdSettings, MdSubscriptions, MdThumbUp, MdVideoLibrary } from 'react-icons/md'
+import SidebarRow from './SidebarRow';
+
+const Sidebar = () => (
+  <div class='sidebar'>
+    <SidebarRow selected Icon={MdHome} title='Home' />
+    <SidebarRow Icon={MdWhatshot} title='Trending' />
+    <SidebarRow Icon={MdExplore} title='Explore' />
+    <hr />
+    <SidebarRow Icon={MdSubscriptions} title='Subscriptions' />
+    <SidebarRow Icon={MdVideoLibrary} title='Library' />
+    <SidebarRow Icon={MdHistory} title='History' />
+    <SidebarRow Icon={MdWatchLater} title='Watch later' />
+    <SidebarRow Icon={MdThumbUp} title='Liked videos' />
+    <hr />
+    <SidebarRow Icon={MdSettings} title='Settings' />
+    <SidebarRow Icon={MdHelp} title='Help' />
+    <SidebarRow Icon={MdFeedback} title='Feedback' />
+  </div>
+);
+
+export default Sidebar;
+
