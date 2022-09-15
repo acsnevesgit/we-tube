@@ -25,7 +25,7 @@
 .home-info {
   display: flex;
   margin-top: 10px;
-  padding-right: 30px;
+  padding-right: 10px;
 }
 
 .home-text {
@@ -37,9 +37,16 @@
   margin-bottom: 5px;
 }
 
-.home-text>p {
+.home-channel {
   font-size: 14px;
   color: var(--mediumgray);
+  margin: 2px 0;
+}
+
+.home-views {
+  font-size: 14px;
+  color: var(--lightgray);
+  margin: 2px 0;
 }
 
 .home-avatar {
@@ -48,7 +55,7 @@
   border-radius: 50%;
 }
 
-.videos {
+.home-videos {
   padding: 30px 80px;
   display: flex;
   flex-wrap: wrap;

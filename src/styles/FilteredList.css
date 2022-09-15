@@ -8,49 +8,56 @@
   --red: rgb(250, 0, 0);
 }
 
-.home {
+.list {
   margin-bottom: 40px;
-  width: 250px;
 }
 
-.home:hover {
+.list li {
+  display: flex;
+}
+
+.list:hover {
   cursor: pointer;
 }
 
-.home-thumbnail {
-  height: 140px;
-  width: 250px;
+.list-thumbnail {
+  height: 170px;
+  width: 300px;
 }
 
-.home-info {
+.list-info {
   display: flex;
+  flex-direction: column;
   margin-top: 10px;
-  padding-right: 30px;
+  padding: 0 30px;
 }
 
-.home-text {
-  margin-left: 15px;
-}
-
-.home-text>h4 {
+.list-text>h4 {
   font-size: 14px;
   margin-bottom: 5px;
 }
 
-.home-text>p {
+.list-channel {
   font-size: 14px;
   color: var(--mediumgray);
+  margin: 2px 0;
 }
 
-.home-avatar {
+.list-views {
+  font-size: 14px;
+  color: var(--lightgray);
+  margin: 2px 0;
+}
+
+.list-avatar {
   height: 30px !important;
   width: 30px !important;
   border-radius: 50%;
 }
 
-.videos {
+.list-videos {
   padding: 30px 80px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
 }

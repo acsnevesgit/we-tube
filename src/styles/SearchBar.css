@@ -68,6 +68,7 @@ input:focus {
   overflow: hidden;
   overflow-y: auto;
   justify-self: left;
+  position: absolute;
 }
 
 .dataResult::-webkit-scrollbar {
@@ -88,6 +89,7 @@ input:focus {
   text-align: justify;
 }
 
-#closeButton {
+#closeButton,
+#searchButton {
   cursor: pointer;
 }

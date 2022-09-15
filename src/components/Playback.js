@@ -2,7 +2,7 @@ import React from 'react';
 
 const Playback = ({ data }) => (
   <iframe
-    class='child'
+    class='grid-element playback'
     width='800'
     height='450'
     src={`https://www.youtube.com/embed/${data}`}

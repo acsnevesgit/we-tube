@@ -23,15 +23,13 @@ body {
   box-sizing: border-box;
 }
 
-/* ------------------------ My changes ------------------------ */
-
 .App {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.child {
+.grid-element {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,7 +70,7 @@ body {
 }
 
 .socialMedia nav {
-  margin-left: 50px;
+  margin-left: 20px;
 }
 
 .socialMediaIcon:hover {
@@ -83,16 +81,8 @@ body {
   margin: 0 10px;
 }
 
-.buttons button {
-  font-size: 18px;
-  padding: 5px 15px;
-  font-weight: 700;
-  border-style: outset;
-  position: relative;
-}
-
 .logo {
-  width: 120px;
+  width: 80px;
   margin-right: 50px;
 }
 
@@ -106,87 +96,8 @@ body {
   flex-direction: column;
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.buttons button:hover {
-  background-color: var(--mediumgray);
-}
-
-.buttons button:active {
-  color: var(--black);
-  top: 2px;
-}
-
-.all {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.links button {
-  border: none;
-  background: none;
-  text-decoration: underline;
-  text-transform: uppercase;
-  font-size: 18px;
-  padding: 5px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 15px;
-  font-weight: 700;
-  color: var(--darkgray);
-  position: relative;
-}
-
-.active button {
-  color: var(--black);
-}
-
-.links button:hover {
-  color: var(--black);
-}
-
-.links.active button:focus {
-  color: var(--black);
-}
-
-.links button:active {
-  top: 2px;
-}
-
-a.videoName {
-  line-height: 25px;
-  cursor: pointer;
-}
-
-a.videoName:hover {
-  background-color: var(--lightgray);
-}
-
-.hide {
-  display: none;
-}
-
-.show {
-  display: contents;
-}
-
-.buttonDefault {
-  text-align: center;
-  cursor: help;
+.playback {
+  margin-bottom: 60px;
 }
 
 button {

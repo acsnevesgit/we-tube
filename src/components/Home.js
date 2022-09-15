@@ -2,8 +2,8 @@ import React from 'react';
 
 const Home = ({ data, onClick }) => {
   return (
-    <div class='videos'>
-      {data.map((video, index) => (
+    <div class='home-videos'>
+      {data.map((video) => (
         <div class='home' key={video.videoName} onClick={onClick}>
           <img class='home-thumbnail' name={video.videoName} src={video.videoThumbnail} alt='' />
           <div class='home-info'>
@@ -14,7 +14,8 @@ const Home = ({ data, onClick }) => {
             />
             <div class='home-text'>
               <h4>{video.videoName}</h4>
-              <p>{video.channelName}</p>
+              <p class='home-channel'>{video.channelName}</p>
+              <p class='home-views'>Views: {video.views}</p>
             </div>
           </div>
         </div>
