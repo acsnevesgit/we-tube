@@ -47,7 +47,7 @@ const SearchBar = ({ data, placeholder, onClick, onSearch, getFilteredView }) =>
           {/* Only show 10 results at once */}
           {filteredData.slice(0, 10).map((value) => {
             return (
-              <a class='dataItem' key={value.videoName} onClick={onClick} href=''>
+              <a class='dataItem' key={value.videoName} onClick={onClick} href='/#'>
                 {value.videoName}
               </a>
             );
